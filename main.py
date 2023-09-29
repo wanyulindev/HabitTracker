@@ -1,3 +1,43 @@
+import requests
+
+pixela_endpoint = "https://pixe.la/v1/users"
+
+user_params = {
+    "token": "shdjkhfewuroidfjlk",
+    "username": "wanyudevtest",
+    "agreeTermsOfService": "yes",
+    "notMinor": "yes",
+}
+# After I created the username and everything, I may hide these two line for later:
+# response = requests.post(pixela_endpoint, json=user_params)
+# print(response.text)
+
+# Q:
+# Instead writing response = requests.post(pixela_endpoint, json=user_params), why not just
+# write response = requests.post(pixela_endpoint, params=user_params)
+# GPT:
+# Using json: When you use the json parameter, the data is sent as a JSON object in the
+# request body. This is typically used when you need to send structured data, such as when
+# working with RESTful APIs that expect JSON payloads. The json parameter will automatically
+# set the Content-Type header to application/json.
+#
+# Using params: The params parameter is used to send data as URL query parameters in the
+# request URL. This is commonly used for GET requests and for some APIs that accept POST
+# requests with data encoded in the URL. It does not send the data in the request body,
+# and it's not the right choice for sending structured JSON data.
+#
+# In your case, if the Pixela API expects user creation data to be sent as a JSON object
+# in the request body, then using json is the correct choice. If you were to use params,
+# the data would be appended to the URL as query parameters, which is likely not what the
+# API expects for user creation.
+#
+# Always refer to the API documentation for the specific requirements on how to send data,
+# and use the appropriate method (json or params) based on the API's specifications.
+
+
+
+
+#---------------------------------------------------------------------------------------------
 # Initial commit:
 # Q: for ChatGPT:
 # could you suggest me how to avoid facing the same conflict next time when i create a
@@ -56,6 +96,5 @@
 # connect it to your local repository without running into unrelated history conflicts.
 # It's important to initialize a new local repository first, make an initial commit, and
 # then add the remote. This sequence usually prevents unrelated history conflicts.
-
 #----------------------------------------------------------------------------------------------
 
