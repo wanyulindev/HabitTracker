@@ -1,4 +1,4 @@
-
+import datetime
 
 # Step 1. - Using request.post() to create new user account:
 import requests
@@ -43,8 +43,10 @@ user_params = {
 # Step 2. - create graphs:
 graphs_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 
+GRAPHID = "graph1"
+
 graphs_config = {
-    "id": "graph1",
+    "id": GRAPHID,
     "name": "Walks Graph",
     "unit": "Km",
     "type": "float",
@@ -54,15 +56,27 @@ graphs_config = {
 headers = {
     "X-USER-TOKEN": TOKEN
 }
-
-response = requests.post(graphs_endpoint, json=graphs_config, headers=headers)
-print(response.text)
+# Since we already succeeded to create our graphs, let's just hide it out:
+# response = requests.post(graphs_endpoint, json=graphs_config, headers=headers)
+# print(response.text)
 # print(graphs_endpoint)
 #----------------------------------------------------------------------------------------------
 # Step 3. - Challenge: Add a Pixel to the Habit Tracker using a Post Request:
 
+pixel_endpoint = f"{graphs_endpoint}/{GRAPHID}"
 
+CURRENT = str(datetime.datetime.now().date()).replace("-", "")
+# print(CURRENT)
 
+pixel_config = {
+    "date": CURRENT,
+    "quantity": "2.35"
+}
+
+response = requests.post(pixel_endpoint, json=pixel_config, headers=headers)
+print(response.text)
+# Well done!
+#---------------------------------------------------------------------------------------------
 
 
 
