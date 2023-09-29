@@ -1,10 +1,16 @@
+
+
+# Step 1. - Using request.post() to create new user account:
 import requests
+
+USERNAME = "wanyudevtest"
+TOKEN = "shdjkhfewuroidfjlk"
 
 pixela_endpoint = "https://pixe.la/v1/users"
 
 user_params = {
-    "token": "shdjkhfewuroidfjlk",
-    "username": "wanyudevtest",
+    "token": TOKEN,
+    "username": USERNAME,
     "agreeTermsOfService": "yes",
     "notMinor": "yes",
 }
@@ -33,6 +39,30 @@ user_params = {
 #
 # Always refer to the API documentation for the specific requirements on how to send data,
 # and use the appropriate method (json or params) based on the API's specifications.
+#--------------------------------------------------------------------------------------------
+# Step 2. - create graphs:
+graphs_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
+
+graphs_config = {
+    "id": "graph1",
+    "name": "Walks Graph",
+    "unit": "Km",
+    "type": "float",
+    "color": "ajisai"
+}
+
+headers = {
+    "X-USER-TOKEN": TOKEN
+}
+
+response = requests.post(graphs_endpoint, json=graphs_config, headers=headers)
+print(response.text)
+# print(graphs_endpoint)
+#----------------------------------------------------------------------------------------------
+# Step 3. - Challenge: Add a Pixel to the Habit Tracker using a Post Request:
+
+
+
 
 
 
