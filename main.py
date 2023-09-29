@@ -80,6 +80,7 @@ pixel_config = {
 # print(response.text)
 # Well done!
 #---------------------------------------------------------------------------------------------
+# Step 4. - Talk about how to delete/update using requests:
 
 
 
