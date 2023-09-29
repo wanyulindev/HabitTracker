@@ -80,10 +80,17 @@ pixel_config = {
 # print(response.text)
 # Well done!
 #---------------------------------------------------------------------------------------------
-# Step 4. - Talk about how to delete/update using requests:
+# Step 4. - Talk about how to delete/update using requests.put(), requests.delete():
 
+# pixel_endpoint_update = f"{pixel_endpoint}/{CURRENT}"
+pixel_endpoint_update = f"{pixel_endpoint}/20230928"
+pixel_config_update = {
+    "quantity": "6.85"
+}
 
-
+response = requests.put(pixel_endpoint_update, json=pixel_config_update, headers=headers)
+print(response.text)
+# Perfectly nail it!
 
 #---------------------------------------------------------------------------------------------
 # Initial commit:
