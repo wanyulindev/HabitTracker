@@ -67,14 +67,17 @@ pixel_endpoint = f"{graphs_endpoint}/{GRAPHID}"
 
 CURRENT = str(datetime.datetime.now().date()).replace("-", "")
 # print(CURRENT)
+# or we could also write as:
+# today = datetime.datetime.now()
+# print(today.strftime("%Y%m%d"))
 
 pixel_config = {
     "date": CURRENT,
     "quantity": "2.35"
 }
 
-response = requests.post(pixel_endpoint, json=pixel_config, headers=headers)
-print(response.text)
+# response = requests.post(pixel_endpoint, json=pixel_config, headers=headers)
+# print(response.text)
 # Well done!
 #---------------------------------------------------------------------------------------------
 
