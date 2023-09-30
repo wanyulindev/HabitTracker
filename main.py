@@ -87,11 +87,18 @@ pixel_config_update = {
     "quantity": "6.85"
 }
 
-response = requests.put(pixel_endpoint_update, json=pixel_config_update, headers=headers)
-print(response.text)
+# response = requests.put(pixel_endpoint_update, json=pixel_config_update, headers=headers)
+# print(response.text)
 # Perfectly nail it!
 
 # finish the delete part: requests.delete():
+
+pixel_endpoint_delete = f"{pixel_endpoint}/{CURRENT}"
+
+# response = requests.delete(pixel_endpoint_delete, headers=headers)
+# print(response.text)
+# Also Perfectly done!
+
 
 
 
